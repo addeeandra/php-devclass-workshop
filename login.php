@@ -6,25 +6,25 @@
 			* {
 				font-family: sans-serif;
 			}
-			form {
+			.form-login {
 				width: 320px;
 				margin-top: 100px;
 				margin-left: auto;
 				margin-right: auto;
 			}
-			input {
+			.form-login input {
 				margin-top: 8px;
 				width: 100%;
 				padding: 8px;
 			}
-			button {
+			.form-login button {
 				margin-top: 16px;
 				padding: 8px 32px;
 			}
 		</style>
 	</head>
 	<body>
-		<form method="POST" action="dashboard.php">
+		<form class="form-login" method="POST" action="dashboard.php">
 			<h2>Login</h4>
 			<input type="text" placeholder="Ketik username Anda" />
 			<input type="password" placeholder="Ketik kata sandi Anda" />
