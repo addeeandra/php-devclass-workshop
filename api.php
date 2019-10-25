@@ -6,6 +6,29 @@ header('Content-Type: application/json');
 
 if (isset($_GET['action']) && $_GET['action'] == 'get_users') {
 
+	if (!isset($_GET['api_key'])) {
+		echo json_encode([
+			'message' => 'API Key required to access this data'
+		]);
+		die();
+	}
+
+	$stmt = $pdo->prepare('SELECT * FROM users WHERE api_key = :token');
+	$stmt->bindParam(':token', $_GET['api_key']);
+	$stmt->execute();
+
+	$logged_in = false;
+	while ($row = $stmt->fetch()) {
+		$logged_in = true;
+	}
+
+	if (!$logged_in) {
+		echo json_encode([
+			'message' => 'Your API Key is invalid'
+		]);
+		die();
+	}
+
 	$query = $pdo->query('SELECT * FROM users');
 	$users = [];
 
