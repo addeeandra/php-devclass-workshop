@@ -5,7 +5,7 @@
 		<title>Halaman Login</title>
 	</head>
 	<body>
-		<form method="POST" action="">
+		<form method="POST" action="dashboard.php">
 			<input type="text" placeholder="Ketik username Anda" />
 			<input type="text" placeholder="Ketik kata sandi Anda" />
 			<button>Submit</button>
