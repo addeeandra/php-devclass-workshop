@@ -1,7 +1,5 @@
 <?php
-	session_start();
-	
-	$pdo = new PDO('mysql:host=localhost;dbname=unnarworkshopdb', 'root', 'bukanroot');
+	require_once 'connection.php';
 
 	if (isset($_SESSION['user'])) {
 		header('Location: dashboard.php');
