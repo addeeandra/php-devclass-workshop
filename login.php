@@ -3,6 +3,11 @@
 	
 	$pdo = new PDO('mysql:host=localhost;dbname=unnarworkshopdb', 'root', 'bukanroot');
 
+	if (isset($_SESSION['user'])) {
+		header('Location: dashboard.php');
+		die();
+	}
+
 	if (isset($_POST['username']) && isset($_POST['password'])) {
 		$username = $_POST['username'];
 		$password = $_POST['password'];

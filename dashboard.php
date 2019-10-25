@@ -2,6 +2,8 @@
 
 	session_start();
 
+	$pdo = new PDO('mysql:host=localhost;dbname=unnarworkshopdb', 'root', 'bukanroot');
+
 	if (!isset($_SESSION['user'])) {
 		header('Location: login.php');
 		die();
@@ -44,11 +46,18 @@
 				<th>Nama</th>
 				<th>Username</th>
 			</tr>
+			<?php
+				$query = $pdo->query('SELECT * FROM users');
+				foreach ($query as $key => $user) {
+			?>
 			<tr>
-				<td>1</td>
-				<td>Admin Bambang</td>
-				<td>usernameadminlain</td>
+				<td><?= $key + 1 ?></td>
+				<td><?= $user['fullname'] ?></td>
+				<td><?= $user['username'] ?></td>
 			</tr>
+			<?php
+				}
+			?>
 		</table>
 	</body>
 </html>
